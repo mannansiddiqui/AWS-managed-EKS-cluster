@@ -58,3 +58,41 @@ Enter few details and then click **Create VPC**
 
 Now, navigate to the search bar, type EKS, and select Elastic Kubernetes Service
 ![15](https://user-images.githubusercontent.com/74168188/190082139-6aefde2d-dd88-4efc-ba5e-179b00a78278.png)
+
+Create a new EKS Cluster
+![16](https://user-images.githubusercontent.com/74168188/190084760-f9684959-53f1-45ae-bc94-be9b9419965f.png)
+
+Enter cluster name and select cluster service role then click Next
+![17](https://user-images.githubusercontent.com/74168188/190085261-8c2e8d2c-de91-4cd2-a444-8d1cf112f9c7.png)
+
+Select VPC, private subnets, and security group
+![18](https://user-images.githubusercontent.com/74168188/190087916-d7d0887d-024a-4cc0-a45e-de6febff8c16.png)
+![19](https://user-images.githubusercontent.com/74168188/190087929-2f398cf4-27f3-4654-8ccb-751ca3fcd2a8.png)
+
+click Next
+![20](https://user-images.githubusercontent.com/74168188/190088104-a896b8a9-f018-4df8-8eb5-5e71be4007d7.png)
+
+Review everything then click Create
+![21](https://user-images.githubusercontent.com/74168188/190088427-a6bc4ddd-3dac-4896-a44b-4e35fd1eb545.png)
+![22](https://user-images.githubusercontent.com/74168188/190088438-f1a68e96-ee1b-4bbe-bdcb-1b612ec19378.png)
+
+Now, we need to add node group to eks cluster. But before this create Node Group role in the IAM console:
+
+1. Open the IAM console [Here](https://console.aws.amazon.com/iam/)
+![23](https://user-images.githubusercontent.com/74168188/190069626-c53f0210-d3a5-4567-8d1d-386f3c23dfb0.png)
+
+2. Choose Roles, then Create role.
+![24](https://user-images.githubusercontent.com/74168188/190069978-c77df6b4-347a-47cc-8196-795eeb355549.png)
+
+3. Under Trusted entity type, select AWS service.
+![25](https://user-images.githubusercontent.com/74168188/190070037-5ac52e08-d5c8-4d15-bdd9-47151e440740.png)
+
+4. From the Use cases for other AWS services dropdown list, choose EKS.
+5. Choose EKS - Nodegroup for your use case, and then choose Next.
+![26](https://user-images.githubusercontent.com/74168188/190090575-b41181a6-a9d4-4cfd-946d-953980aa1c18.png)
+
+6. On the Add permissions tab, choose Next.
+![27](https://user-images.githubusercontent.com/74168188/190090968-832f83ca-7a58-4355-8e68-c1201c218f61.png)
+
+7. For Description, enter descriptive text such as Allow EKS to manage nodegroups on your behalf. Then choose Create role.
+![28](https://user-images.githubusercontent.com/74168188/190093021-c1a50d89-c051-4c2b-b7c0-a3b3a43aa18f.png)
