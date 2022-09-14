@@ -96,3 +96,5 @@ Now, we need to add node group to eks cluster. But before this create Node Group
 
 7. For Description, enter descriptive text such as Allow EKS to manage nodegroups on your behalf. Then choose Create role.
 ![28](https://user-images.githubusercontent.com/74168188/190093021-c1a50d89-c051-4c2b-b7c0-a3b3a43aa18f.png)
+
+Let's add node group to cluster. For this navigate to the search bar, type EKS, and select Elastic Kubernetes Service.
