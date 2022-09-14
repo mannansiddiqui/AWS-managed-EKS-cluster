@@ -15,32 +15,32 @@
 
 #### Step-1: Setup EKS cluster with custom VPC
 
-Firstly, We need to create Amazon EKS cluster role in the IAM console:
+Firstly, Log in to the AWS management console.
+![1](https://user-images.githubusercontent.com/74168188/178555843-f062573f-166c-4b06-b947-d2d11da46507.png)
+
+We need to create Amazon EKS cluster role in the IAM console:
 
 1. Open the IAM console [Here](https://console.aws.amazon.com/iam/)
-![1](https://user-images.githubusercontent.com/74168188/190069626-c53f0210-d3a5-4567-8d1d-386f3c23dfb0.png)
+![2](https://user-images.githubusercontent.com/74168188/190069626-c53f0210-d3a5-4567-8d1d-386f3c23dfb0.png)
 
 2. Choose Roles, then Create role.
-![2](https://user-images.githubusercontent.com/74168188/190069978-c77df6b4-347a-47cc-8196-795eeb355549.png)
+![3](https://user-images.githubusercontent.com/74168188/190069978-c77df6b4-347a-47cc-8196-795eeb355549.png)
 
 3. Under Trusted entity type, select AWS service.
-![3](https://user-images.githubusercontent.com/74168188/190070037-5ac52e08-d5c8-4d15-bdd9-47151e440740.png)
+![4](https://user-images.githubusercontent.com/74168188/190070037-5ac52e08-d5c8-4d15-bdd9-47151e440740.png)
 
 4. From the Use cases for other AWS services dropdown list, choose EKS.
 5. Choose EKS - Cluster for your use case, and then choose Next.
-![4](https://user-images.githubusercontent.com/74168188/190070109-45d85743-e089-4115-8187-92e3b6e9b7fd.png)
+![5](https://user-images.githubusercontent.com/74168188/190070109-45d85743-e089-4115-8187-92e3b6e9b7fd.png)
 
 6. On the Add permissions tab, choose Next.
-![5](https://user-images.githubusercontent.com/74168188/190070600-b218672a-84b3-4317-9052-70616a74f59f.png)
+![6](https://user-images.githubusercontent.com/74168188/190070600-b218672a-84b3-4317-9052-70616a74f59f.png)
 
 7. For Role name, enter a unique name for your role, such as eksClusterRole.
 8. For Description, enter descriptive text such as Amazon EKS - Cluster role.
-![6](https://user-images.githubusercontent.com/74168188/190070704-f9472b3b-ce40-4069-b6c8-3f48d85999a6.png)
+![7](https://user-images.githubusercontent.com/74168188/190070704-f9472b3b-ce40-4069-b6c8-3f48d85999a6.png)
 
 9. Choose Create role.
-![7](https://user-images.githubusercontent.com/74168188/190070737-1a187b57-293f-4f78-a79e-31b03a033425.png)
-
-Log in to the AWS management console.
-![Img-1](https://user-images.githubusercontent.com/74168188/178555843-f062573f-166c-4b06-b947-d2d11da46507.png)
+![8](https://user-images.githubusercontent.com/74168188/190070737-1a187b57-293f-4f78-a79e-31b03a033425.png)
 
 After login, navigate to the search bar, type EKS, and select Elastic Kubernetes Service
