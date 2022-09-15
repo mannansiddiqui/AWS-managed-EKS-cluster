@@ -98,3 +98,26 @@ Now, we need to add node group to eks cluster. But before this create Node Group
 ![28](https://user-images.githubusercontent.com/74168188/190093021-c1a50d89-c051-4c2b-b7c0-a3b3a43aa18f.png)
 
 Let's add node group to cluster. For this navigate to the search bar, type EKS, and select Elastic Kubernetes Service.
+![29](https://user-images.githubusercontent.com/74168188/190403805-6115ed7f-9b9d-48c5-b58f-495036786274.png)
+![30](https://user-images.githubusercontent.com/74168188/190403957-64cf01a8-138f-4d76-86ee-08c8d057c4b7.png)
+
+In compute unit add a node group
+![31](https://user-images.githubusercontent.com/74168188/190405782-90d8bf78-8f51-4545-a5c2-45f9af4288d9.png)
+![32](https://user-images.githubusercontent.com/74168188/190406126-5e3fadcb-97e1-465c-89b2-973a57815f7f.png)
+![33](https://user-images.githubusercontent.com/74168188/190406144-17a54cf7-ccec-4d72-99b4-7f4b3a30d55b.png)
+
+Click Next
+
+![34](https://user-images.githubusercontent.com/74168188/190406344-c440e520-dd7e-43d3-ab10-872cbee8401e.png)
+![35](https://user-images.githubusercontent.com/74168188/190406361-a65c59e3-fd87-45ed-a2d9-ac954566a83e.png)
+
+Click Next
+
+Put Node Group in public subnet and click Next
+![36](https://user-images.githubusercontent.com/74168188/190407092-06ed66a8-53af-4931-b324-c405ee98edba.png)
+
+Review and click on Create
+![37](https://user-images.githubusercontent.com/74168188/190407330-622acfa7-3f3d-43f3-8519-6acd2584005f.png)
+![38](https://user-images.githubusercontent.com/74168188/190407343-f4bd0763-90cb-4848-9f3c-4f9188fe7832.png)
+![39](https://user-images.githubusercontent.com/74168188/190407583-59b66631-2df0-49b6-87ea-0101237a8e0d.png)
+
