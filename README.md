@@ -148,22 +148,25 @@ Let's add node group to cluster. For this navigate to the search bar, type EKS, 
 In compute unit add a node group
 
 ![34](https://user-images.githubusercontent.com/74168188/190626867-5fb9d78c-f261-4af5-981c-65fe9d38f63c.png)
+
+Enter Node Group name and select IAM role
+
 ![35](https://user-images.githubusercontent.com/74168188/190627157-0d43bed6-84ff-4e70-a44a-39a10ae35561.png)
 ![36](https://user-images.githubusercontent.com/74168188/190627166-5bd14dad-bd4b-40a7-a21b-8386a197e1fa.png)
 
 
 Click Next
 
-![34](https://user-images.githubusercontent.com/74168188/190406344-c440e520-dd7e-43d3-ab10-872cbee8401e.png)
-![35](https://user-images.githubusercontent.com/74168188/190406361-a65c59e3-fd87-45ed-a2d9-ac954566a83e.png)
+![37](https://user-images.githubusercontent.com/74168188/190406344-c440e520-dd7e-43d3-ab10-872cbee8401e.png)
+![38](https://user-images.githubusercontent.com/74168188/190406361-a65c59e3-fd87-45ed-a2d9-ac954566a83e.png)
 
 Click Next
 
 Put Node Group in public subnet and click Next
 
-![36](https://user-images.githubusercontent.com/74168188/190407092-06ed66a8-53af-4931-b324-c405ee98edba.png)
+![39](https://user-images.githubusercontent.com/74168188/190407092-06ed66a8-53af-4931-b324-c405ee98edba.png)
 
 Review and click on Create
 
-![37](https://user-images.githubusercontent.com/74168188/190567498-9763890a-d1ba-41fd-834b-5cbca3f15ad4.png)
-![38](https://user-images.githubusercontent.com/74168188/190567508-d01f40bb-1c27-41a6-b606-d68ec7f075bc.png)
+![40](https://user-images.githubusercontent.com/74168188/190567498-9763890a-d1ba-41fd-834b-5cbca3f15ad4.png)
+![41](https://user-images.githubusercontent.com/74168188/190567508-d01f40bb-1c27-41a6-b606-d68ec7f075bc.png)
