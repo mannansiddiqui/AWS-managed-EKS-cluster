@@ -16,95 +16,137 @@
 #### Step-1: Setup EKS cluster with custom VPC
 
 Firstly, Log in to the AWS management console.
+
 ![1](https://user-images.githubusercontent.com/74168188/178555843-f062573f-166c-4b06-b947-d2d11da46507.png)
 ![2](https://user-images.githubusercontent.com/74168188/190071634-bf417dd2-5e8b-4342-b18f-57973ddff4b5.png)
 
 We need to create Amazon EKS cluster role in the IAM console:
 
 1. Open the IAM console [Here](https://console.aws.amazon.com/iam/)
+
 ![3](https://user-images.githubusercontent.com/74168188/190069626-c53f0210-d3a5-4567-8d1d-386f3c23dfb0.png)
 
 2. Choose Roles, then Create role.
+
 ![4](https://user-images.githubusercontent.com/74168188/190069978-c77df6b4-347a-47cc-8196-795eeb355549.png)
 
 3. Under Trusted entity type, select AWS service.
+
 ![5](https://user-images.githubusercontent.com/74168188/190070037-5ac52e08-d5c8-4d15-bdd9-47151e440740.png)
 
 4. From the Use cases for other AWS services dropdown list, choose EKS.
 5. Choose EKS - Cluster for your use case, and then choose Next.
+
 ![6](https://user-images.githubusercontent.com/74168188/190070109-45d85743-e089-4115-8187-92e3b6e9b7fd.png)
 
 6. On the Add permissions tab, choose Next.
+
 ![7](https://user-images.githubusercontent.com/74168188/190070600-b218672a-84b3-4317-9052-70616a74f59f.png)
 
 7. For Role name, enter a unique name for your role, such as eksClusterRole.
 8. For Description, enter descriptive text such as Amazon EKS - Cluster role.
+
 ![8](https://user-images.githubusercontent.com/74168188/190070704-f9472b3b-ce40-4069-b6c8-3f48d85999a6.png)
 
 9. Choose Create role.
+
 ![9](https://user-images.githubusercontent.com/74168188/190070737-1a187b57-293f-4f78-a79e-31b03a033425.png)
 
-After that we need to create a custom VPC. For this search VPC in search bar of AWS console.
+After that we need to create a custom VPC:
 
-![10](https://user-images.githubusercontent.com/74168188/190072040-926bfe5a-3b14-4f1a-8a41-b3ca2d28a1b5.png)
+1. Open the AWS CloudFormation console at (Here){https://console.aws.amazon.com/cloudformation]
 
-Then click on **Create VPC**
-![11](https://user-images.githubusercontent.com/74168188/190072158-f5aa51e9-bbcd-4c6e-8fa0-8ac9b340e19e.png)
+![10](https://user-images.githubusercontent.com/74168188/190577122-faab5074-198f-41a0-bb02-bb58355e5a68.png)
 
-Enter few details and then click **Create VPC**
-![12](https://user-images.githubusercontent.com/74168188/190081615-fa824e10-6cce-4d50-9607-207152e7d0b4.png)
-![13](https://user-images.githubusercontent.com/74168188/190081628-4a77589a-0540-4e61-84df-8b06ddb848ce.png)
-![14](https://user-images.githubusercontent.com/74168188/190081826-58654262-773f-477f-a596-fbd021de3368.png)
+2. From the navigation bar, select an AWS Region that supports Amazon EKS.
 
-Now, navigate to the search bar, type EKS, and select Elastic Kubernetes Service
-![15](https://user-images.githubusercontent.com/74168188/190082139-6aefde2d-dd88-4efc-ba5e-179b00a78278.png)
+3. Choose Create stack, With new resources (standard).
+
+![11](https://user-images.githubusercontent.com/74168188/190577298-ceec082f-e19a-45ee-bd85-8bacb1370e47.png)
+
+4. Under Prepare template, make sure that Template is ready is selected and then under Template source, select Amazon S3 URL.
+
+5. Paste the following URL into the text area under Amazon S3 URL and choose Next:
+
+![12](https://user-images.githubusercontent.com/74168188/190580145-2923aff2-9275-46b9-a91b-34b94acee820.png)
+
+6. On the Specify stack details page, enter the parameters, and then choose Next.
+
+![13](https://user-images.githubusercontent.com/74168188/190580785-408bf0ed-298c-4da6-b353-db6bea224a3a.png)
+
+7. (Optional) On the Configure stack options page, tag your stack resources and then choose Next.
+
+![14](https://user-images.githubusercontent.com/74168188/190581211-824fb385-e443-46c5-b06c-2a75c0483e7a.png)
+
+8. On the Review page, choose Create stack.
+
+![15](https://user-images.githubusercontent.com/74168188/190581466-00fb48df-9dea-416c-9b7d-0e15f4268db6.png)
+![16](https://user-images.githubusercontent.com/74168188/190581477-5b44e69a-4faf-4fee-bcd7-17bd86c03894.png)
+ -------------------------------------------
+
+Now, To create EKS cluster navigate to the search bar, type EKS, and select Elastic Kubernetes Service
+
+![13](https://user-images.githubusercontent.com/74168188/190082139-6aefde2d-dd88-4efc-ba5e-179b00a78278.png)
 
 Create a new EKS Cluster
+
 ![16](https://user-images.githubusercontent.com/74168188/190084760-f9684959-53f1-45ae-bc94-be9b9419965f.png)
 
 Enter cluster name and select cluster service role then click Next
+
 ![17](https://user-images.githubusercontent.com/74168188/190085261-8c2e8d2c-de91-4cd2-a444-8d1cf112f9c7.png)
 
 Select VPC, private subnets, and security group
+
 ![18](https://user-images.githubusercontent.com/74168188/190087916-d7d0887d-024a-4cc0-a45e-de6febff8c16.png)
 ![19](https://user-images.githubusercontent.com/74168188/190087929-2f398cf4-27f3-4654-8ccb-751ca3fcd2a8.png)
 
 click Next
+
 ![20](https://user-images.githubusercontent.com/74168188/190088104-a896b8a9-f018-4df8-8eb5-5e71be4007d7.png)
 
 Review everything then click Create
+
 ![21](https://user-images.githubusercontent.com/74168188/190088427-a6bc4ddd-3dac-4896-a44b-4e35fd1eb545.png)
 ![22](https://user-images.githubusercontent.com/74168188/190088438-f1a68e96-ee1b-4bbe-bdcb-1b612ec19378.png)
 
 Now, we need to add node group to eks cluster. But before this create Node Group role in the IAM console:
 
 1. Open the IAM console [Here](https://console.aws.amazon.com/iam/)
+
 ![23](https://user-images.githubusercontent.com/74168188/190069626-c53f0210-d3a5-4567-8d1d-386f3c23dfb0.png)
 
 2. Choose Roles, then Create role.
+
 ![24](https://user-images.githubusercontent.com/74168188/190069978-c77df6b4-347a-47cc-8196-795eeb355549.png)
 
 3. Under Trusted entity type, select AWS service.
+
 ![25](https://user-images.githubusercontent.com/74168188/190070037-5ac52e08-d5c8-4d15-bdd9-47151e440740.png)
 
 4. From the Use cases for other AWS services dropdown list, choose EKS.
 5. Choose EKS - Nodegroup for your use case, and then choose Next.
+
 ![26](https://user-images.githubusercontent.com/74168188/190090575-b41181a6-a9d4-4cfd-946d-953980aa1c18.png)
 
 6. On the Add permissions tab, choose Next.
+
 ![27](https://user-images.githubusercontent.com/74168188/190090968-832f83ca-7a58-4355-8e68-c1201c218f61.png)
 
 7. For Description, enter descriptive text such as Allow EKS to manage nodegroups on your behalf. Then choose Create role.
+
 ![28](https://user-images.githubusercontent.com/74168188/190093021-c1a50d89-c051-4c2b-b7c0-a3b3a43aa18f.png)
 
 Let's add node group to cluster. For this navigate to the search bar, type EKS, and select Elastic Kubernetes Service.
+
 ![29](https://user-images.githubusercontent.com/74168188/190403805-6115ed7f-9b9d-48c5-b58f-495036786274.png)
 ![30](https://user-images.githubusercontent.com/74168188/190403957-64cf01a8-138f-4d76-86ee-08c8d057c4b7.png)
 
 In compute unit add a node group
+
 ![31](https://user-images.githubusercontent.com/74168188/190405782-90d8bf78-8f51-4545-a5c2-45f9af4288d9.png)
-![32](https://user-images.githubusercontent.com/74168188/190406126-5e3fadcb-97e1-465c-89b2-973a57815f7f.png)
-![33](https://user-images.githubusercontent.com/74168188/190406144-17a54cf7-ccec-4d72-99b4-7f4b3a30d55b.png)
+![32](https://user-images.githubusercontent.com/74168188/190567134-befb9394-89ea-4ffb-988d-dd9a7522a404.png)
+![33](https://user-images.githubusercontent.com/74168188/190567151-2174a392-498a-4f7b-8b3f-4c178a3e9aa1.png)
 
 Click Next
 
@@ -114,10 +156,10 @@ Click Next
 Click Next
 
 Put Node Group in public subnet and click Next
+
 ![36](https://user-images.githubusercontent.com/74168188/190407092-06ed66a8-53af-4931-b324-c405ee98edba.png)
 
 Review and click on Create
-![37](https://user-images.githubusercontent.com/74168188/190407330-622acfa7-3f3d-43f3-8519-6acd2584005f.png)
-![38](https://user-images.githubusercontent.com/74168188/190407343-f4bd0763-90cb-4848-9f3c-4f9188fe7832.png)
-![39](https://user-images.githubusercontent.com/74168188/190407583-59b66631-2df0-49b6-87ea-0101237a8e0d.png)
 
+![37](https://user-images.githubusercontent.com/74168188/190567498-9763890a-d1ba-41fd-834b-5cbca3f15ad4.png)
+![38](https://user-images.githubusercontent.com/74168188/190567508-d01f40bb-1c27-41a6-b606-d68ec7f075bc.png)
