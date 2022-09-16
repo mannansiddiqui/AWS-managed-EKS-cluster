@@ -117,33 +117,33 @@ Now, we need to add node group to eks cluster. But before this create Node Group
 
 1. Open the IAM console [Here](https://console.aws.amazon.com/iam/)
 
-![23](https://user-images.githubusercontent.com/74168188/190069626-c53f0210-d3a5-4567-8d1d-386f3c23dfb0.png)
+![26](https://user-images.githubusercontent.com/74168188/190069626-c53f0210-d3a5-4567-8d1d-386f3c23dfb0.png)
 
 2. Choose Roles, then Create role.
 
-![24](https://user-images.githubusercontent.com/74168188/190069978-c77df6b4-347a-47cc-8196-795eeb355549.png)
+![27](https://user-images.githubusercontent.com/74168188/190069978-c77df6b4-347a-47cc-8196-795eeb355549.png)
 
 3. Under Trusted entity type, select AWS service.
 
-![25](https://user-images.githubusercontent.com/74168188/190070037-5ac52e08-d5c8-4d15-bdd9-47151e440740.png)
+![28](https://user-images.githubusercontent.com/74168188/190070037-5ac52e08-d5c8-4d15-bdd9-47151e440740.png)
 
 4. From the Use cases for other AWS services dropdown list, choose EKS.
 5. Choose EKS - Nodegroup for your use case, and then choose Next.
 
-![26](https://user-images.githubusercontent.com/74168188/190090575-b41181a6-a9d4-4cfd-946d-953980aa1c18.png)
+![29](https://user-images.githubusercontent.com/74168188/190090575-b41181a6-a9d4-4cfd-946d-953980aa1c18.png)
 
 6. On the Add permissions tab, choose Next.
 
-![27](https://user-images.githubusercontent.com/74168188/190090968-832f83ca-7a58-4355-8e68-c1201c218f61.png)
+![30](https://user-images.githubusercontent.com/74168188/190090968-832f83ca-7a58-4355-8e68-c1201c218f61.png)
 
 7. For Description, enter descriptive text such as Allow EKS to manage nodegroups on your behalf. Then choose Create role.
 
-![28](https://user-images.githubusercontent.com/74168188/190093021-c1a50d89-c051-4c2b-b7c0-a3b3a43aa18f.png)
+![31](https://user-images.githubusercontent.com/74168188/190093021-c1a50d89-c051-4c2b-b7c0-a3b3a43aa18f.png)
 
-Let's add node group to cluster. For this navigate to the search bar, type EKS, and select Elastic Kubernetes Service.
+Let's add node group to cluster. For this navigate to the search bar, type EKS, and select Elastic Kubernetes Service. Select Cluster
 
-![29](https://user-images.githubusercontent.com/74168188/190403805-6115ed7f-9b9d-48c5-b58f-495036786274.png)
-![30](https://user-images.githubusercontent.com/74168188/190403957-64cf01a8-138f-4d76-86ee-08c8d057c4b7.png)
+![32](https://user-images.githubusercontent.com/74168188/190403805-6115ed7f-9b9d-48c5-b58f-495036786274.png)
+![33](https://user-images.githubusercontent.com/74168188/190403957-64cf01a8-138f-4d76-86ee-08c8d057c4b7.png)
 
 In compute unit add a node group
 
