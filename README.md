@@ -82,33 +82,36 @@ After that we need to create a custom VPC:
 
 ![15](https://user-images.githubusercontent.com/74168188/190581466-00fb48df-9dea-416c-9b7d-0e15f4268db6.png)
 ![16](https://user-images.githubusercontent.com/74168188/190581477-5b44e69a-4faf-4fee-bcd7-17bd86c03894.png)
- -------------------------------------------
+
+VPC is created
+
+![17](https://user-images.githubusercontent.com/74168188/190622023-b76a72a9-6df9-4b38-984b-ecb38600654e.png)
 
 Now, To create EKS cluster navigate to the search bar, type EKS, and select Elastic Kubernetes Service
 
-![13](https://user-images.githubusercontent.com/74168188/190082139-6aefde2d-dd88-4efc-ba5e-179b00a78278.png)
+![18](https://user-images.githubusercontent.com/74168188/190082139-6aefde2d-dd88-4efc-ba5e-179b00a78278.png)
 
 Create a new EKS Cluster
 
-![16](https://user-images.githubusercontent.com/74168188/190084760-f9684959-53f1-45ae-bc94-be9b9419965f.png)
+![19](https://user-images.githubusercontent.com/74168188/190084760-f9684959-53f1-45ae-bc94-be9b9419965f.png)
 
 Enter cluster name and select cluster service role then click Next
 
-![17](https://user-images.githubusercontent.com/74168188/190085261-8c2e8d2c-de91-4cd2-a444-8d1cf112f9c7.png)
+![20](https://user-images.githubusercontent.com/74168188/190085261-8c2e8d2c-de91-4cd2-a444-8d1cf112f9c7.png)
 
 Select VPC, private subnets, and security group
 
-![18](https://user-images.githubusercontent.com/74168188/190087916-d7d0887d-024a-4cc0-a45e-de6febff8c16.png)
-![19](https://user-images.githubusercontent.com/74168188/190087929-2f398cf4-27f3-4654-8ccb-751ca3fcd2a8.png)
+![21](https://user-images.githubusercontent.com/74168188/190622716-8cdbc5ed-429c-46c8-9a0a-6d8047d08020.png)
+![22](https://user-images.githubusercontent.com/74168188/190622733-b48e0b96-1507-4832-90cd-30e42a2b43e7.png)
 
 click Next
 
-![20](https://user-images.githubusercontent.com/74168188/190088104-a896b8a9-f018-4df8-8eb5-5e71be4007d7.png)
+![23](https://user-images.githubusercontent.com/74168188/190088104-a896b8a9-f018-4df8-8eb5-5e71be4007d7.png)
 
 Review everything then click Create
 
-![21](https://user-images.githubusercontent.com/74168188/190088427-a6bc4ddd-3dac-4896-a44b-4e35fd1eb545.png)
-![22](https://user-images.githubusercontent.com/74168188/190088438-f1a68e96-ee1b-4bbe-bdcb-1b612ec19378.png)
+![24](https://user-images.githubusercontent.com/74168188/190623212-39a20395-0190-4938-9272-fad89cf879af.png)
+![25](https://user-images.githubusercontent.com/74168188/190623222-d88f3526-dfe0-40f7-b6d8-66822b66a3e1.png)
 
 Now, we need to add node group to eks cluster. But before this create Node Group role in the IAM console:
 
