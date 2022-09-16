@@ -1,4 +1,4 @@
-# Steup AWS managed EKS cluster
+# Setup AWS managed EKS cluster
 
 #### Description:
 
