@@ -147,9 +147,10 @@ Let's add node group to cluster. For this navigate to the search bar, type EKS, 
 
 In compute unit add a node group
 
-![31](https://user-images.githubusercontent.com/74168188/190405782-90d8bf78-8f51-4545-a5c2-45f9af4288d9.png)
-![32](https://user-images.githubusercontent.com/74168188/190567134-befb9394-89ea-4ffb-988d-dd9a7522a404.png)
-![33](https://user-images.githubusercontent.com/74168188/190567151-2174a392-498a-4f7b-8b3f-4c178a3e9aa1.png)
+![34](https://user-images.githubusercontent.com/74168188/190626867-5fb9d78c-f261-4af5-981c-65fe9d38f63c.png)
+![35](https://user-images.githubusercontent.com/74168188/190627157-0d43bed6-84ff-4e70-a44a-39a10ae35561.png)
+![36](https://user-images.githubusercontent.com/74168188/190627166-5bd14dad-bd4b-40a7-a21b-8386a197e1fa.png)
+
 
 Click Next
 
