@@ -213,5 +213,34 @@ sudo ./aws/install
 ![53](https://user-images.githubusercontent.com/74168188/190980313-b8bbb2ba-c31e-41d0-bbe0-97330ed737df.png)
 ![54](https://user-images.githubusercontent.com/74168188/190980425-630ad6af-3e28-471c-88eb-754dfd486d1c.png)
 
-Now run ```aws configure``` and enter access key and secret key which is used to create a eks cluster else it may not work. Get 
+Now run ```aws configure``` and enter access key and secret key which is used to create a EKS cluster else it may not work. You can get keys from security credentials of AWS management console or create new by clicking Create New Access Key
 
+![55](https://user-images.githubusercontent.com/74168188/190984767-662c78b1-4163-4859-8621-a832b0843383.png)
+![56](https://user-images.githubusercontent.com/74168188/190984998-8d03237f-4ca7-45d1-a144-b5b9498110cd.png)
+
+![57](https://user-images.githubusercontent.com/74168188/191001861-3e267537-6da1-4c2c-9e72-d9cd1195c91c.png)
+
+AWS cli is successfully installed and configured.
+
+Now we also need kubectl installed on bastion server to control EKS cluster. [Here](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html) is the AWS official documentation to install kubectl.
+
+Run these commands to install kubectl:
+```
+curl -o kubectl https://s3.us-west-2.amazonaws.com/amazon-eks/1.22.6/2022-03-09/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$PATH:$HOME/bin
+```
+
+![58](https://user-images.githubusercontent.com/74168188/191004190-97dd0c81-c41c-43df-a616-830444ebb1b5.png)
+
+kubectl is successfully installed.
+
+Now we need a kube config file. Run ```aws eks update-kubeconfig --region <region-code> --name <my-cluster>``` on the bastion server. It will download the kube config file and store in as **.kube/config** file
+
+![59](https://user-images.githubusercontent.com/74168188/191004027-8ab7ee31-77e9-45af-9b00-9e19b2b39af6.png)
+
+Now we need to allow 443 port in security group of worker nodes as kubectl work on 443 port.
+
+![60](https://user-images.githubusercontent.com/74168188/191012611-c2a2e0a4-30a0-4afc-991b-fa491a7065a2.png)
+
+If we are able to do **kubectl get pods** it means everything is configured correctly.
