@@ -203,3 +203,15 @@ Now, ssh to bastion server from local
 
 Install aws cli so that we can run aws configure command and get the kubeconfig file in bastion server. [Here](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) is the AWS official documentation to install AWS CLI.
 
+Run these commands to install aws cli:
+
+```
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+```
+![53](https://user-images.githubusercontent.com/74168188/190980313-b8bbb2ba-c31e-41d0-bbe0-97330ed737df.png)
+![54](https://user-images.githubusercontent.com/74168188/190980425-630ad6af-3e28-471c-88eb-754dfd486d1c.png)
+
+Now run ```aws configure``` and enter access key and secret key which is used to create a eks cluster else it may not work. Get 
+
