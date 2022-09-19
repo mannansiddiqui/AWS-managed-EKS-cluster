@@ -66,7 +66,7 @@ After that we need to create a custom VPC:
 
 4. Under Prepare template, make sure that Template is ready is selected and then under Template source, select Amazon S3 URL.
 
-5. Paste the following URL into the text area under Amazon S3 URL and choose Next:
+5. Paste ```https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/amazon-eks-vpc-private-subnets.yaml``` URL into the text area under Amazon S3 URL and choose Next:
 
 ![12](https://user-images.githubusercontent.com/74168188/190580145-2923aff2-9275-46b9-a91b-34b94acee820.png)
 
