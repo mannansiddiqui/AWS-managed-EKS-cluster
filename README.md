@@ -54,7 +54,7 @@ We need to create Amazon EKS cluster role in the IAM console:
 
 After that we need to create a custom VPC:
 
-1. Open the AWS CloudFormation console at (Here)[https://console.aws.amazon.com/cloudformation]
+1. Open the AWS CloudFormation console at [Here](https://console.aws.amazon.com/cloudformation)
 
 ![10](https://user-images.githubusercontent.com/74168188/190577122-faab5074-198f-41a0-bb02-bb58355e5a68.png)
 
