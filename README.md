@@ -251,7 +251,7 @@ We are able to do **kubectl get all** it means everything is configured correctl
 
 To create a sample NodeJS app we used [this](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/) nodejs official documentation .
 
-Firstly we need to create a **package.json** file with:
+Firstly we need to create a **package.json** file that describes your app and its dependencies:
 ```
 {
   "name": "docker_web_app",
@@ -270,3 +270,50 @@ Firstly we need to create a **package.json** file with:
 
 ![62](https://user-images.githubusercontent.com/74168188/191017233-b1b29ffb-5600-42e9-880a-d05dd9f7dc41.png)
 
+With your new package.json file, run npm install. If you are using npm version 5 or later, this will generate a package-lock.json file which will be copied to your Docker image.
+
+Then, create a server.js file that defines a web app.
+
+```
+'use strict';
+
+const express = require('express');
+
+// Constants
+const PORT = 80;
+const HOST = '0.0.0.0';
+
+// App
+const app = express();
+app.get('/', (req, res) => {
+  res.send('Hello World');
+});
+
+app.listen(PORT, HOST);
+console.log(`Running on http://${HOST}:${PORT}`);
+```
+
+![63](https://user-images.githubusercontent.com/74168188/191020622-9410d59e-68bd-4d3c-937c-9e9b35deddd6.png)
+
+Now create a Dockerfile and build a docker image with node image then push to docker hub.
+
+![64](https://user-images.githubusercontent.com/74168188/191021891-98fc554b-8a72-4625-b816-b3a2c22dedc3.png)
+
+But to build docker image we need to install docker in bastion server. To install Docker in Amazon Machine Linux 2 image use ```sudo yum install docker -y```
+
+![65](https://user-images.githubusercontent.com/74168188/191027590-ac0e5e3f-2420-47f0-8068-7ffb50843e8a.png)
+![66](https://user-images.githubusercontent.com/74168188/191027608-82699959-4eec-41ea-b334-caee4b04c310.png)
+
+Now start and enable docker using:
+
+```
+sudo systemctl start docker
+sudo systemctl enable docker
+```
+
+![67](https://user-images.githubusercontent.com/74168188/191028327-758ded41-1748-47b6-9c4c-1489fa71ac3a.png)
+
+Build a docker image using ```sudo docker build -t <username>/<image_name>:<version> <path_of_docker_file>```
+
+![68](https://user-images.githubusercontent.com/74168188/191028768-9a1e8847-ca98-4a0a-922f-074d2b7af4dd.png)
+![69](https://user-images.githubusercontent.com/74168188/191028937-b7283889-c693-4b4e-afbc-97c6d3f50449.png)
