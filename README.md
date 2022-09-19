@@ -243,4 +243,30 @@ Now we need to allow 443 port in security group of worker nodes as kubectl work 
 
 ![60](https://user-images.githubusercontent.com/74168188/191012611-c2a2e0a4-30a0-4afc-991b-fa491a7065a2.png)
 
-If we are able to do **kubectl get pods** it means everything is configured correctly.
+We are able to do **kubectl get all** it means everything is configured correctly.
+
+![61](https://user-images.githubusercontent.com/74168188/191015929-5178fc25-012b-4b7c-9bff-5a9b6ef24915.png)
+
+#### Step-2: Create NodeJS deployment and service
+
+To create a sample NodeJS app we used [this](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/) nodejs official documentation .
+
+Firstly we need to create a **package.json** file with:
+```
+{
+  "name": "docker_web_app",
+  "version": "1.0.0",
+  "description": "Node.js on Docker",
+  "author": "First Last <first.last@example.com>",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.1"
+  }
+}
+```
+
+![62](https://user-images.githubusercontent.com/74168188/191017233-b1b29ffb-5600-42e9-880a-d05dd9f7dc41.png)
+
