@@ -15,6 +15,8 @@
 
 #### Step-1: Setup EKS cluster with custom VPC
 
+To setup EKS cluster we have followed [this](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-console.html) AWS official documentation.
+
 Firstly, Log in to the AWS management console.
 
 ![1](https://user-images.githubusercontent.com/74168188/178555843-f062573f-166c-4b06-b947-d2d11da46507.png)
@@ -127,18 +129,24 @@ Now, we need to add node group to eks cluster. But before this create Node Group
 
 ![28](https://user-images.githubusercontent.com/74168188/190070037-5ac52e08-d5c8-4d15-bdd9-47151e440740.png)
 
-4. From the Use cases for other AWS services dropdown list, choose EKS.
-5. Choose EKS - Nodegroup for your use case, and then choose Next.
+4. Under Use case, choose EC2 then Choose Next.
 
-![29](https://user-images.githubusercontent.com/74168188/190090575-b41181a6-a9d4-4cfd-946d-953980aa1c18.png)
+![29](https://user-images.githubusercontent.com/74168188/190968676-9359495d-5e32-490c-8bdf-40b9303ebf99.png)
 
-6. On the Add permissions tab, choose Next.
+5. On the Add permissions tab, choose AmazonEKSWorkerNodePolicy, AmazonEC2ContainerRegistryReadOnly, and AmazonEKS_CNI_Policy then choose Next.
 
-![30](https://user-images.githubusercontent.com/74168188/190090968-832f83ca-7a58-4355-8e68-c1201c218f61.png)
+![30](https://user-images.githubusercontent.com/74168188/190970077-5e540ca7-9380-460c-b353-0df4e2f393c9.png)
+![31](https://user-images.githubusercontent.com/74168188/190970088-0283648b-35bd-4a3b-94ae-7f2b71e5a2c9.png)
+![32](https://user-images.githubusercontent.com/74168188/190970098-1bef09a5-b5f9-43e5-b22b-4dea035c90db.png)
 
-7. For Description, enter descriptive text such as Allow EKS to manage nodegroups on your behalf. Then choose Create role.
+6. On the Name, review, and create page enter a unique name for your role, such as AmazonEKSNodeRole and replace the current text with descriptive text such as Amazon EKS - Node role.
 
-![31](https://user-images.githubusercontent.com/74168188/190093021-c1a50d89-c051-4c2b-b7c0-a3b3a43aa18f.png)
+![33](https://user-images.githubusercontent.com/74168188/190970898-5b905f6a-2a78-43cb-96e0-75f0202ffb0d.png)
+![34](https://user-images.githubusercontent.com/74168188/190970910-647a322a-8411-4b93-a056-6c372736263c.png)
+
+Then choose Create role.
+
+![35](https://user-images.githubusercontent.com/74168188/190971663-1c3dc450-6696-4387-80de-0a17949adfe2.png)
 
 Let's add node group to cluster. For this navigate to the search bar, type EKS, and select Elastic Kubernetes Service. Select Cluster
 
