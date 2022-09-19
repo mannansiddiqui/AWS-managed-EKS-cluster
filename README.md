@@ -20,7 +20,7 @@ Firstly, Log in to the AWS management console.
 ![1](https://user-images.githubusercontent.com/74168188/178555843-f062573f-166c-4b06-b947-d2d11da46507.png)
 ![2](https://user-images.githubusercontent.com/74168188/190071634-bf417dd2-5e8b-4342-b18f-57973ddff4b5.png)
 
-We need to create Amazon EKS cluster role in the IAM console:
+We need to create Amazon EKS cluster role in the IAM console. [Here](https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html) is the AWS official documentation for Amazon EKS cluster role:
 
 1. Open the IAM console [Here](https://console.aws.amazon.com/iam/)
 
@@ -52,7 +52,7 @@ We need to create Amazon EKS cluster role in the IAM console:
 
 ![9](https://user-images.githubusercontent.com/74168188/190070737-1a187b57-293f-4f78-a79e-31b03a033425.png)
 
-After that we need to create a custom VPC:
+After that we need to create a custom VPC. [Here](https://docs.aws.amazon.com/eks/latest/userguide/creating-a-vpc.html) is the AWS official documentation for custom vpc:
 
 1. Open the AWS CloudFormation console at [Here](https://console.aws.amazon.com/cloudformation)
 
@@ -63,7 +63,7 @@ After that we need to create a custom VPC:
 3. Choose Create stack, With new resources (standard).
 
 ![11](https://user-images.githubusercontent.com/74168188/190577298-ceec082f-e19a-45ee-bd85-8bacb1370e47.png)
-
+Followed
 4. Under Prepare template, make sure that Template is ready is selected and then under Template source, select Amazon S3 URL.
 
 5. Paste ```https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/amazon-eks-vpc-private-subnets.yaml``` URL into the text area under Amazon S3 URL and choose Next:
@@ -113,7 +113,7 @@ Review everything then click Create
 ![24](https://user-images.githubusercontent.com/74168188/190623212-39a20395-0190-4938-9272-fad89cf879af.png)
 ![25](https://user-images.githubusercontent.com/74168188/190623222-d88f3526-dfe0-40f7-b6d8-66822b66a3e1.png)
 
-Now, we need to add node group to eks cluster. But before this create Node Group role in the IAM console:
+Now, we need to add node group to eks cluster. But before this create Node Group role in the IAM console. [Here](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html) is the AWS official documentation for Amazon EKS node IAM role:
 
 1. Open the IAM console [Here](https://console.aws.amazon.com/iam/)
 
