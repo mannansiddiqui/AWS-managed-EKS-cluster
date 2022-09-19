@@ -170,3 +170,16 @@ Review and click on Create
 
 ![40](https://user-images.githubusercontent.com/74168188/190567498-9763890a-d1ba-41fd-834b-5cbca3f15ad4.png)
 ![41](https://user-images.githubusercontent.com/74168188/190567508-d01f40bb-1c27-41a6-b606-d68ec7f075bc.png)
+
+#######################################################
+
+To launch a bastion server, navigate to the search bar, type EC2, and select EC2.
+
+![Screenshot from 2022-09-19 12-10-29](https://user-images.githubusercontent.com/74168188/190962213-95a4d2d7-f964-4042-9b05-6cafe81decb4.png)
+
+Now, Select Launch instance
+
+![Screenshot from 2022-09-19 12-12-50](https://user-images.githubusercontent.com/74168188/190962347-b6bb6af8-6cd4-43d6-a00b-15a1f4cbc352.png)
+
+Enter few details like Instance name, AMI, Instance type, key pair to attach with instance and VPC.
+
