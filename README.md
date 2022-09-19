@@ -196,3 +196,10 @@ Enter few details like Instance name, AMI, Instance type, key pair to attach wit
 Bastion server is successfully launched
 
 ![51](https://user-images.githubusercontent.com/74168188/190977292-d99d22f4-e1b7-4831-8bc6-e4b77f5fd047.png)
+
+Now, ssh to bastion server from local
+
+![52](https://user-images.githubusercontent.com/74168188/190978252-18cda3de-3e4d-4311-9826-af68b002f236.png)
+
+Install aws cli so that we can run aws configure command and get the kubeconfig file in bastion server. [Here](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) is the AWS official documentation to install AWS CLI.
+
