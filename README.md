@@ -150,44 +150,49 @@ Then choose Create role.
 
 Let's add node group to cluster. For this navigate to the search bar, type EKS, and select Elastic Kubernetes Service. Select Cluster
 
-![32](https://user-images.githubusercontent.com/74168188/190403805-6115ed7f-9b9d-48c5-b58f-495036786274.png)
-![33](https://user-images.githubusercontent.com/74168188/190403957-64cf01a8-138f-4d76-86ee-08c8d057c4b7.png)
+![36](https://user-images.githubusercontent.com/74168188/190403805-6115ed7f-9b9d-48c5-b58f-495036786274.png)
+![37](https://user-images.githubusercontent.com/74168188/190403957-64cf01a8-138f-4d76-86ee-08c8d057c4b7.png)
 
 In compute unit add a node group
 
-![34](https://user-images.githubusercontent.com/74168188/190626867-5fb9d78c-f261-4af5-981c-65fe9d38f63c.png)
+![38](https://user-images.githubusercontent.com/74168188/190626867-5fb9d78c-f261-4af5-981c-65fe9d38f63c.png)
 
 Enter Node Group name and select IAM role
 
-![35](https://user-images.githubusercontent.com/74168188/190627157-0d43bed6-84ff-4e70-a44a-39a10ae35561.png)
-![36](https://user-images.githubusercontent.com/74168188/190627166-5bd14dad-bd4b-40a7-a21b-8386a197e1fa.png)
-
-
-Click Next
-
-![37](https://user-images.githubusercontent.com/74168188/190406344-c440e520-dd7e-43d3-ab10-872cbee8401e.png)
-![38](https://user-images.githubusercontent.com/74168188/190406361-a65c59e3-fd87-45ed-a2d9-ac954566a83e.png)
+![39](https://user-images.githubusercontent.com/74168188/190972237-8796eec2-6b6d-46ba-91eb-54be476017d0.png)
+![40](https://user-images.githubusercontent.com/74168188/190972253-dd797a94-3ddd-4d05-accf-69dc194748f9.png)
 
 Click Next
 
-Put Node Group in public subnet and click Next
+![41](https://user-images.githubusercontent.com/74168188/190406344-c440e520-dd7e-43d3-ab10-872cbee8401e.png)
+![42](https://user-images.githubusercontent.com/74168188/190406361-a65c59e3-fd87-45ed-a2d9-ac954566a83e.png)
 
-![39](https://user-images.githubusercontent.com/74168188/190407092-06ed66a8-53af-4931-b324-c405ee98edba.png)
+Click Next and put Node Group in public subnet and click Next
+
+![43](https://user-images.githubusercontent.com/74168188/190973054-6751edfe-497a-44b4-8b9c-2bee9b7bf1ac.png)
 
 Review and click on Create
 
-![40](https://user-images.githubusercontent.com/74168188/190567498-9763890a-d1ba-41fd-834b-5cbca3f15ad4.png)
-![41](https://user-images.githubusercontent.com/74168188/190567508-d01f40bb-1c27-41a6-b606-d68ec7f075bc.png)
+![44](https://user-images.githubusercontent.com/74168188/190973540-7cdc4e37-82aa-478d-993c-e4ff395b7eee.png)
+![45](https://user-images.githubusercontent.com/74168188/190973548-b85e9feb-e755-4183-8103-6e7955d9c7dc.png)
 
-#######################################################
+Node group is attached successfully
 
-To launch a bastion server, navigate to the search bar, type EC2, and select EC2.
+![46](https://user-images.githubusercontent.com/74168188/190975735-b749babc-626d-4cb1-9d1a-3f9597002467.png)
 
-![Screenshot from 2022-09-19 12-10-29](https://user-images.githubusercontent.com/74168188/190962213-95a4d2d7-f964-4042-9b05-6cafe81decb4.png)
+To access this eks cluster we need a bastion server. To launch a bastion server, navigate to the search bar, type EC2, and select EC2.
+
+![47](https://user-images.githubusercontent.com/74168188/190962213-95a4d2d7-f964-4042-9b05-6cafe81decb4.png)
 
 Now, Select Launch instance
 
-![Screenshot from 2022-09-19 12-12-50](https://user-images.githubusercontent.com/74168188/190962347-b6bb6af8-6cd4-43d6-a00b-15a1f4cbc352.png)
+![48](https://user-images.githubusercontent.com/74168188/190962347-b6bb6af8-6cd4-43d6-a00b-15a1f4cbc352.png)
 
-Enter few details like Instance name, AMI, Instance type, key pair to attach with instance and VPC.
+Enter few details like Instance name, AMI, Instance type, key pair to attach with instance and VPC then click Launch instance.
 
+![49](https://user-images.githubusercontent.com/74168188/190976414-b9186e0b-7aa3-4aeb-8f37-134b45f8c345.png)
+![50](https://user-images.githubusercontent.com/74168188/190976425-8219a044-ffe1-43eb-93bc-36bbabd4a73c.png)
+
+Bastion server is successfully launched
+
+![51](https://user-images.githubusercontent.com/74168188/190977292-d99d22f4-e1b7-4831-8bc6-e4b77f5fd047.png)
