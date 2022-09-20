@@ -465,5 +465,25 @@ Now check all i.e. storage class, pvc, pv, deployment, and pods.
 
 ![81](https://user-images.githubusercontent.com/74168188/191207467-60c74ede-2f33-4730-86ff-c802696ac9ba.png)
 
-Time to expose this nodejs app to outside cluster. For this create a service manifest file using ```sudo vim service.yml```
+Time to expose this nodejs app to outside this cluster. For this create a service manifest file using ```sudo vim service.yml``` and put this:
 
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysvc
+spec:
+  type: LoadBalancer
+  selector:
+    app: nodejspod
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+```
+
+![82](https://user-images.githubusercontent.com/74168188/191209900-a8f8d47d-7285-4e34-b335-df3fb82d215f.png)
+
+To create service with LoadBalancer type run ```kubectl create -f service.yml```
+
+![83](https://user-images.githubusercontent.com/74168188/191210387-9e9264f0-67be-4817-8905-2fc041bdde19.png)
