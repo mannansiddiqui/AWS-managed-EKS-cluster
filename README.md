@@ -270,9 +270,7 @@ Firstly we need to create a **package.json** file that describes your app and it
 
 ![62](https://user-images.githubusercontent.com/74168188/191017233-b1b29ffb-5600-42e9-880a-d05dd9f7dc41.png)
 
-With your new package.json file, run npm install. If you are using npm version 5 or later, this will generate a package-lock.json file which will be copied to your Docker image.
-
-Then, create a server.js file that defines a web app.
+Then, create a server.js file that defines a web app using the Express.js framework.
 
 ```
 'use strict';
@@ -295,7 +293,31 @@ console.log(`Running on http://${HOST}:${PORT}`);
 
 ![63](https://user-images.githubusercontent.com/74168188/191020622-9410d59e-68bd-4d3c-937c-9e9b35deddd6.png)
 
-Now create a Dockerfile and build a docker image with node image then push to docker hub.
+Now create a Dockerfile and build a docker image using node as base image then push to docker hub.
+
+Create file using ```sudo vim Dockerfile``` and put this:
+
+```
+FROM node:16
+
+# Create app directory
+WORKDIR /usr/src/app
+
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+)
+COPY package*.json ./
+
+RUN npm install
+# If you are building your code for production
+# RUN npm ci --only=production
+
+# Bundle app source
+COPY . .
+
+EXPOSE 80
+CMD [ "node", "server.js" ]
+```
 
 ![64](https://user-images.githubusercontent.com/74168188/191021891-98fc554b-8a72-4625-b816-b3a2c22dedc3.png)
 
