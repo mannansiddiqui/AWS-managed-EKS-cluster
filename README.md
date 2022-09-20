@@ -365,7 +365,7 @@ Image is successfully pushed to docker hub.
 
 ![73](https://user-images.githubusercontent.com/74168188/191187923-445a48e7-07a5-4301-81a7-7fca487a7f5d.png)
 
-Now time to create a Nodejs deployment manifest file. But before this create a storage class and PV so that this PV can be attached to nodejs container.
+Now time to create a Nodejs deployment manifest file. But before this create a storage class and PV so that this PV can be attached to nodejs container. [Here](https://kubernetes.io/docs/concepts/storage/storage-classes/) is the Kubernetes official documentation to create storage class. [Here](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims) is the Kubernetes official documentation to create PVC.
 
 Create a storage class using ```sudo vim sc.yml``` and put this:
 ```
@@ -424,7 +424,7 @@ Check storage class, pvc, and pv is created or not using ```kubectl get sc```, `
 
 As seen in above screenshot PV is not created because storage class will only create a PV when there is consumer available i.e. pod.
 
-Now create a deployment for nodejs app. Create a deployment file using ```sudo vim deployment.yml```
+Now create a deployment for nodejs app. Create a deployment file using ```sudo vim deployment.yml```. [Here](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) is the Kubernetes official documentation to create a deployment.
 
 ```
 apiVersion: apps/v1
@@ -465,7 +465,7 @@ Now check all i.e. storage class, pvc, pv, deployment, and pods.
 
 ![81](https://user-images.githubusercontent.com/74168188/191207467-60c74ede-2f33-4730-86ff-c802696ac9ba.png)
 
-Time to expose this nodejs app to outside this cluster. For this create a service manifest file using ```sudo vim service.yml``` and put this:
+Time to expose this nodejs app to outside this cluster. For this create a service manifest file using ```sudo vim service.yml```. [Here](https://kubernetes.io/docs/concepts/services-networking/service/) is the Kubernetes official documentation to create service.
 
 ```
 apiVersion: v1
@@ -487,3 +487,20 @@ spec:
 To create service with LoadBalancer type run ```kubectl create -f service.yml```
 
 ![83](https://user-images.githubusercontent.com/74168188/191210387-9e9264f0-67be-4817-8905-2fc041bdde19.png)
+
+Check service is succesfully created or not using ```kubectl get svc```
+
+![84](https://user-images.githubusercontent.com/74168188/191227626-b5a95f01-530c-4758-9e00-2b1d416cf6dc.png)
+
+Now try to hit External IP.
+
+![85](https://user-images.githubusercontent.com/74168188/191227883-a0ab63b8-8078-459f-8059-09dd77a70894.png)
+
+Site is working fine.
+
+#### Step-3: PV & storage class
+
+Storage class and PV is created in starting of Step-2.
+
+#### Step-4: Create ingress controller and access above created deployment using ingress and point it to the domain (application should be accessible through a browser)
+
