@@ -367,3 +367,5 @@ Image is successfully pushed to docker hub.
 
 Now time to create a Nodejs deployment manifest file. But before this create a storage class and PV so that this PV can be attached to nodejs-app container.
 
+Create a storage class using ```sudo vim sc.yaml``` and put this:
+```
