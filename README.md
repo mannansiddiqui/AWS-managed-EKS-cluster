@@ -365,7 +365,105 @@ Image is successfully pushed to docker hub.
 
 ![73](https://user-images.githubusercontent.com/74168188/191187923-445a48e7-07a5-4301-81a7-7fca487a7f5d.png)
 
-Now time to create a Nodejs deployment manifest file. But before this create a storage class and PV so that this PV can be attached to nodejs-app container.
+Now time to create a Nodejs deployment manifest file. But before this create a storage class and PV so that this PV can be attached to nodejs container.
 
-Create a storage class using ```sudo vim sc.yaml``` and put this:
+Create a storage class using ```sudo vim sc.yml``` and put this:
 ```
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: mysc
+parameters:
+  fsType: ext4
+  type: gp2
+provisioner: kubernetes.io/aws-ebs
+reclaimPolicy: Delete
+volumeBindingMode: WaitForFirstConsumer
+allowedTopologies:
+- matchLabelExpressions:
+  - key: failure-domain.beta.kubernetes.io/zone
+    values:
+    - ap-south-1b
+    - ap-south-1a
+# mountOptions:
+# - debug
+```
+
+![74](https://user-images.githubusercontent.com/74168188/191201717-9abf552e-616a-48e4-87a6-9cd8f4baf4b5.png)
+
+To create this storage class use ```kubectl create -f sc.yml```
+
+![75](https://user-images.githubusercontent.com/74168188/191202401-774e494c-88f9-41eb-bfaf-fca2ef5b5716.png)
+
+Create a PVC so that PV is dynamically created. To create a PVC manifest file use ```sudo vim pvc.yml``` and put this:
+
+```
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mypvc
+spec:
+  accessModes:
+  - ReadWriteOnce
+  volumeMode: Filesystem
+  storageClassName: "mysc"
+  resources:
+    requests:
+      storage: 1Gi
+```
+
+![76](https://user-images.githubusercontent.com/74168188/191203738-591736e5-0824-4d2f-be02-27453df311ba.png)
+
+To create a PV from storage class create PVC run ```kubectl create -f pvc.yml```
+
+![77](https://user-images.githubusercontent.com/74168188/191204154-3c5bce09-b107-4659-8278-e26f2a7050b5.png)
+
+Check storage class, pvc, and pv is created or not using ```kubectl get sc```, ```kubectl get pvc``` and ```kubectl get pv```
+
+![78](https://user-images.githubusercontent.com/74168188/191204652-088ac3a2-30db-4cf2-9c2d-0f213be86dde.png)
+
+As seen in above screenshot PV is not created because storage class will only create a PV when there is consumer available i.e. pod.
+
+Now create a deployment for nodejs app. Create a deployment file using ```sudo vim deployment.yml```
+
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydeployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodejspod
+  template:
+    metadata:
+      labels:
+        app: nodejspod
+    spec:
+      volumes:
+      - name: pvfromebs
+        persistentVolumeClaim:
+          claimName: mypvc
+      containers:
+      - name: nodejscontainer
+        image: mannansiddiqui/nodejs-app:v1
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: /var
+          name: pvfromebs
+```
+
+![79](https://user-images.githubusercontent.com/74168188/191206986-2b94c311-f614-4bc2-b590-8c18f2dca0da.png)
+
+To create a deployment run ```kubectl create -f deployment.yml```
+
+![80](https://user-images.githubusercontent.com/74168188/191206504-ff3076fa-4cac-4076-bee8-62dfb4873a78.png)
+
+Now check all i.e. storage class, pvc, pv, deployment, and pods.
+
+![81](https://user-images.githubusercontent.com/74168188/191207467-60c74ede-2f33-4730-86ff-c802696ac9ba.png)
+
+Time to expose this nodejs app to outside cluster. For this create a service manifest file using ```sudo vim service.yml```
+
