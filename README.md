@@ -321,10 +321,20 @@ CMD [ "node", "server.js" ]
 
 ![64](https://user-images.githubusercontent.com/74168188/191021891-98fc554b-8a72-4625-b816-b3a2c22dedc3.png)
 
+Create a .dockerignore file in the same directory as your Dockerfile with following content:
+```
+*
+!package*.json
+!Dockerfile
+!server.js
+```
+
+![65](https://user-images.githubusercontent.com/74168188/191188533-d5fcf73f-7f2b-4e44-8707-890283e1200a.png)
+
 But to build docker image we need to install docker in bastion server. To install Docker in Amazon Machine Linux 2 image use ```sudo yum install docker -y```
 
-![65](https://user-images.githubusercontent.com/74168188/191027590-ac0e5e3f-2420-47f0-8068-7ffb50843e8a.png)
-![66](https://user-images.githubusercontent.com/74168188/191027608-82699959-4eec-41ea-b334-caee4b04c310.png)
+![66](https://user-images.githubusercontent.com/74168188/191027590-ac0e5e3f-2420-47f0-8068-7ffb50843e8a.png)
+![67](https://user-images.githubusercontent.com/74168188/191027608-82699959-4eec-41ea-b334-caee4b04c310.png)
 
 Now start and enable docker using:
 
@@ -333,9 +343,27 @@ sudo systemctl start docker
 sudo systemctl enable docker
 ```
 
-![67](https://user-images.githubusercontent.com/74168188/191028327-758ded41-1748-47b6-9c4c-1489fa71ac3a.png)
+![68](https://user-images.githubusercontent.com/74168188/191028327-758ded41-1748-47b6-9c4c-1489fa71ac3a.png)
 
 Build a docker image using ```sudo docker build -t <username>/<image_name>:<version> <path_of_docker_file>```
 
-![68](https://user-images.githubusercontent.com/74168188/191028768-9a1e8847-ca98-4a0a-922f-074d2b7af4dd.png)
-![69](https://user-images.githubusercontent.com/74168188/191028937-b7283889-c693-4b4e-afbc-97c6d3f50449.png)
+![69](https://user-images.githubusercontent.com/74168188/191183666-6dc78ae3-b355-4e30-b870-9f404b1cd4e6.png)
+
+Docker image is successfully created and can be seen using ```sudo docker image ls```
+
+![70](https://user-images.githubusercontent.com/74168188/191184340-5c427e84-e524-4926-96cd-faaf1c50d5fa.png)
+
+To push this image to docker hub you need to login inside dockerhub from bastion server using ```sudo docker login``` and enter username and password.
+
+![71](https://user-images.githubusercontent.com/74168188/191184705-89f953c7-3938-401f-8adf-e656b502b81e.png)
+
+Now to push this image run ```sudo docker push mannansiddiqui/nodejs-app:v1```
+
+![72](https://user-images.githubusercontent.com/74168188/191187299-cb223a35-de6f-4a25-bad5-f2bbc8e3966c.png)
+
+Image is successfully pushed to docker hub.
+
+![73](https://user-images.githubusercontent.com/74168188/191187923-445a48e7-07a5-4301-81a7-7fca487a7f5d.png)
+
+Now time to create a Nodejs deployment manifest file. But before this create a storage class and PV so that this PV can be attached to nodejs-app container.
+
