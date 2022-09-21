@@ -518,4 +518,58 @@ To check all ingress-nginx-controller pods and service are running run ```kubect
 
 Now time to create ingress resource. [Here](https://kubernetes.io/docs/concepts/services-networking/ingress/) is the official documentation to create ingress resource.
 
-Create a manifest file to create ingress resource.
+Create a manifest file for ingress resource using ```sudo vim ingress.yml```
+
+```
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: myingress
+  #annotations:
+    #nginx.ingress.kubernetes.io/rewrite-target: /$1
+    #cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    #kubernetes.io/ingress.class: nginx
+spec:
+  ingressClassName: nginx
+<!--   tls: 
+  - hosts: 
+      - node.mannan18.ml
+      - vimal.mannan18.ml
+    secretName: mysecret -->
+  rules:
+  - host: nodejs.mannan18.ml
+    http:
+        paths:
+        - pathType: Prefix
+          path: "/node"
+          backend:
+            service:
+              name: mysvc
+              port:
+                number: 80
+<!--         - pathType: Prefix
+          path: "/vimal"
+          backend:
+            service:
+              name: mysvc2
+              port:
+                number: 80
+  - host: vimal.mannan18.ml
+    http:
+        paths:
+        - pathType: Prefix
+          path: "/vimal"
+          backend:
+            service:
+              name: mysvc2
+              port:
+                number: 80
+        - pathType: Prefix
+          path: "/node"
+          backend:
+            service:
+              name: node-app
+              port:
+                number: 8080 -->
+```
+
