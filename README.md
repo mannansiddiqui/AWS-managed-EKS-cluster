@@ -514,62 +514,41 @@ Run ```kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-ngi
 
 To check all ingress-nginx-controller pods and service are running run ```kubectl get all -n ingress-nginx``` as all nginx ingress controller pods and services are running inside **ingress-nginx** namespace.
 
-![87](https://user-images.githubusercontent.com/74168188/191448180-43d48190-4eab-4916-a25f-8f6e9501060d.png)
+![87](https://user-images.githubusercontent.com/74168188/191515982-b69459a4-7b81-400c-a583-ecc6c292acc4.png)
 
 Now time to create ingress resource. [Here](https://kubernetes.io/docs/concepts/services-networking/ingress/) is the official documentation to create ingress resource.
 
-Create a manifest file for ingress resource using ```sudo vim ingress.yml```
+Create a manifest file for ingress resource using ```sudo vim ingress.yml``` and put this:
 
 ```
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: myingress
-  #annotations:
-    #nginx.ingress.kubernetes.io/rewrite-target: /$1
-    #cert-manager.io/cluster-issuer: "letsencrypt-prod"
-    #kubernetes.io/ingress.class: nginx
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx
-<!--   tls: 
-  - hosts: 
-      - node.mannan18.ml
-      - vimal.mannan18.ml
-    secretName: mysecret -->
   rules:
   - host: nodejs.mannan18.ml
     http:
         paths:
         - pathType: Prefix
-          path: "/node"
+          path: "/nodejs"
           backend:
             service:
               name: mysvc
               port:
                 number: 80
-<!--         - pathType: Prefix
-          path: "/vimal"
-          backend:
-            service:
-              name: mysvc2
-              port:
-                number: 80
-  - host: vimal.mannan18.ml
-    http:
-        paths:
-        - pathType: Prefix
-          path: "/vimal"
-          backend:
-            service:
-              name: mysvc2
-              port:
-                number: 80
-        - pathType: Prefix
-          path: "/node"
-          backend:
-            service:
-              name: node-app
-              port:
-                number: 8080 -->
 ```
+
+![88](https://user-images.githubusercontent.com/74168188/191509427-5dfa6274-fd87-4894-ba93-49bafa806d7d.png)
+
+To create ingress resource run ```kubectl apply -f ingress.yml``` from bastion server.
+
+![89](https://user-images.githubusercontent.com/74168188/191510378-e0700ff3-7949-4290-994c-6ae348e896e0.png)
+
+Now, to check ingress is created is not run ```kubectl get ingress``` and 
+
+![90](https://user-images.githubusercontent.com/74168188/191510723-d46cd966-1a62-4943-b076-63bc21cf72f7.png)
 
