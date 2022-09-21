@@ -504,3 +504,4 @@ Storage class and PV is created in starting of Step-2.
 
 #### Step-4: Create ingress controller and access above created deployment using ingress and point it to the domain (application should be accessible through a browser)
 
+In order for the Ingress resource to work, the cluster must have an ingress controller running. Kubernetes as a project supports and maintains AWS, GCE, and nginx ingress controllers. We will use Nginx ingress controller. [Here](https://kubernetes.github.io/ingress-nginx/deploy/) is the official documentation to install Nginx ingress controller.
