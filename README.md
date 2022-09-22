@@ -552,7 +552,10 @@ A hosted zone is now created. Create a record to route traffic to the LoadBalanc
 ![97](https://user-images.githubusercontent.com/74168188/191677723-2da0d0bb-9327-4040-bc03-14bb8663246d.png)
 ![98](https://user-images.githubusercontent.com/74168188/191677920-22d91602-d522-4718-bba8-2a8d4b5bb394.png)
 
-Also, copy the nameserver from records   ut in 
+Also, copy the nameserver from records of hosted zone and paste it in freenom.
+
+![99](https://user-images.githubusercontent.com/74168188/191744112-6e236dc9-abd7-465d-afea-6778cf5321fd.png)
+![100](https://user-images.githubusercontent.com/74168188/191744184-62798fa3-5dbc-49b7-9c3e-3a80c6f8b9c6.png)
 
 Now, Create a manifest file for ingress resource using ```sudo vim ingress.yml``` and put this:
 
@@ -592,7 +595,8 @@ Let's test ingress is working or not. First hit the ***nodejs.mannan18.ml*** in 
 
 ![102](https://user-images.githubusercontent.com/74168188/191725519-3413c431-f7e9-4bb6-9908-96a59d0d894d.png)
 
-After this hit ***nodejs.mannan18.ml/nodejs*** in this case we should get result let's see...
+After this hit ***nodejs.mannan18.ml/nodejs*** in this case we should get result as we have created rule for ***/nodejs*** let's see...
 
 ![103](https://user-images.githubusercontent.com/74168188/191725554-a86627a0-a0f3-4a26-b218-95b65ac79e49.png)
 
+Nodejs app is accessible...
