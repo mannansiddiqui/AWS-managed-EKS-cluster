@@ -506,7 +506,9 @@ Storage class and PV is created in starting of Step-2.
 
 In order for the Ingress resource to work, the cluster must have an ingress controller running. Kubernetes as a project supports and maintains AWS, GCE, and nginx ingress controllers. We will use Nginx ingress controller. [Here](https://kubernetes.github.io/ingress-nginx/deploy/) is the official documentation to install Nginx ingress controller.
 
-In AWS, we use a Network load balancer (NLB) to expose the NGINX Ingress controller behind a Service of Type=LoadBalancer.
+In AWS, we use a Network load balancer (NLB) to expose the NGINX Ingress controller behind a Service of Type=LoadBalancer. So flow will be like:
+
+```User----->LoadBalancer----->Ingress----->Service----->Pod```
 
 Run ```kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.3.1/deploy/static/provider/aws/deploy.yaml``` to install ingress controller.
 
@@ -514,9 +516,41 @@ Run ```kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-ngi
 
 To check all ingress-nginx-controller pods and service are running run ```kubectl get all -n ingress-nginx``` as all nginx ingress controller pods and services are running inside **ingress-nginx** namespace.
 
-![87](https://user-images.githubusercontent.com/74168188/191515982-b69459a4-7b81-400c-a583-ecc6c292acc4.png)
+![87](https://user-images.githubusercontent.com/74168188/191667523-10421d21-3b8b-4195-95e6-605073fe69cc.png)
 
-Now time to create ingress resource. [Here](https://kubernetes.io/docs/concepts/services-networking/ingress/) is the official documentation to create ingress resource.
+Now time to create ingress resource. [Here](https://kubernetes.io/docs/concepts/services-networking/ingress/) is the official documentation to create ingress resource. We need an domain for ingress resource.
+
+Purchase a free domain from freenom.com. For this, search any domain and click select, then checkout and complete the order.
+
+![88](https://user-images.githubusercontent.com/74168188/178556964-db9c96e3-443e-4be7-88d1-0b450c5feb7b.png)
+![89](https://user-images.githubusercontent.com/74168188/178556984-c7d8378f-e7b4-452b-a4f1-3a24d90cd58b.png)
+![90](https://user-images.githubusercontent.com/74168188/178557005-4c881e54-da28-4ab4-8c7b-5b28939de62e.png)
+
+Now, select My Domains inside Services.
+
+![91](https://user-images.githubusercontent.com/74168188/178632468-d7ba16f6-37db-441a-8376-3aef7e3f6296.png)
+
+Click the manage button of the domain that you want to configure.
+
+![92](https://user-images.githubusercontent.com/74168188/178655181-8b5d6421-d8b6-4f6c-a862-3ff0e7b3df05.png)
+
+Under management tools select nameservers. Here we need to provide the nameserver that will convert domain name to loadbalancer. Nameservers we can get by createing a hosted zone using AWS Route53. 
+
+Now, create a hosted zone using the Route53 service of AWS and map above domain to LoadBalancer.
+
+![93](https://user-images.githubusercontent.com/74168188/178700658-ba293416-af6e-4deb-aae0-9a328b9acd1c.png)
+
+Fill in the domain name you want to route traffic, then click create a hosted zone.
+
+![94](https://user-images.githubusercontent.com/74168188/178701549-a95ca56b-1f4b-40d0-8a3a-775267ee18da.png)
+
+![95](https://user-images.githubusercontent.com/74168188/178701591-13e43594-3576-480f-98f8-93d6647fc3cb.png)
+
+A hosted zone is now created. Create a record to route traffic to the LoadBalancer.
+
+![96](https://user-images.githubusercontent.com/74168188/191676903-0e703aec-f3cc-41de-9577-c0ee6b3b318a.png)
+![97](https://user-images.githubusercontent.com/74168188/191677723-2da0d0bb-9327-4040-bc03-14bb8663246d.png)
+![98](https://user-images.githubusercontent.com/74168188/191677920-22d91602-d522-4718-bba8-2a8d4b5bb394.png)
 
 Create a manifest file for ingress resource using ```sudo vim ingress.yml``` and put this:
 
@@ -548,7 +582,7 @@ To create ingress resource run ```kubectl apply -f ingress.yml``` from bastion s
 
 ![89](https://user-images.githubusercontent.com/74168188/191510378-e0700ff3-7949-4290-994c-6ae348e896e0.png)
 
-Now, to check ingress is created is not run ```kubectl get ingress``` and 
+Now, to check ingress is created is not run ```kubectl get ingress``` and check address is assigned or not.
 
-![90](https://user-images.githubusercontent.com/74168188/191510723-d46cd966-1a62-4943-b076-63bc21cf72f7.png)
+![90](https://user-images.githubusercontent.com/74168188/191669303-95e0e981-fa75-4321-8826-99e45812a7ce.png)
 
