@@ -552,7 +552,9 @@ A hosted zone is now created. Create a record to route traffic to the LoadBalanc
 ![97](https://user-images.githubusercontent.com/74168188/191677723-2da0d0bb-9327-4040-bc03-14bb8663246d.png)
 ![98](https://user-images.githubusercontent.com/74168188/191677920-22d91602-d522-4718-bba8-2a8d4b5bb394.png)
 
-Create a manifest file for ingress resource using ```sudo vim ingress.yml``` and put this:
+Also, copy the nameserver from records   ut in 
+
+Now, Create a manifest file for ingress resource using ```sudo vim ingress.yml``` and put this:
 
 ```
 apiVersion: networking.k8s.io/v1
@@ -576,13 +578,21 @@ spec:
                 number: 80
 ```
 
-![88](https://user-images.githubusercontent.com/74168188/191509427-5dfa6274-fd87-4894-ba93-49bafa806d7d.png)
+![99](https://user-images.githubusercontent.com/74168188/191509427-5dfa6274-fd87-4894-ba93-49bafa806d7d.png)
 
 To create ingress resource run ```kubectl apply -f ingress.yml``` from bastion server.
 
-![89](https://user-images.githubusercontent.com/74168188/191510378-e0700ff3-7949-4290-994c-6ae348e896e0.png)
+![100](https://user-images.githubusercontent.com/74168188/191510378-e0700ff3-7949-4290-994c-6ae348e896e0.png)
 
 Now, to check ingress is created is not run ```kubectl get ingress``` and check address is assigned or not.
 
-![90](https://user-images.githubusercontent.com/74168188/191669303-95e0e981-fa75-4321-8826-99e45812a7ce.png)
+![101](https://user-images.githubusercontent.com/74168188/191669303-95e0e981-fa75-4321-8826-99e45812a7ce.png)
+
+Let's test ingress is working or not. First hit the ***nodejs.mannan18.ml*** in this case we will not get any result because rule is not created for ***/*** route also default backend is not created. 
+
+![102](https://user-images.githubusercontent.com/74168188/191725519-3413c431-f7e9-4bb6-9908-96a59d0d894d.png)
+
+After this hit ***nodejs.mannan18.ml/nodejs*** in this case we should get result let's see...
+
+![103](https://user-images.githubusercontent.com/74168188/191725554-a86627a0-a0f3-4a26-b218-95b65ac79e49.png)
 
