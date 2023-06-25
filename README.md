@@ -1,10 +1,10 @@
-# Setup AWS managed EKS cluster
+# AWS managed EKS cluster
 
 #### Description:
 
-- Setup EKS cluster with custom VPC
-- Create NodeJS deployment and service
-- PV & storage class
+- Setup an EKS cluster with a custom VPC.
+- Create a NodeJS deployment and service in the EKS cluster.
+- Configure Persistent Volumes (PV) and Storage Class (SC).
 - Create ingress controller and access above created deployment using ingress and point it to the domain (application should be accessible through a browser) 
 - HPA & probs
 - SSL certificate
@@ -13,7 +13,7 @@
 - Use database and connect it with frontend
 - Configure monitoring using prometheus and grafana
 
-#### Step-1: Setup EKS cluster with custom VPC
+#### Step-1: Setup an EKS cluster with a custom VPC.
 
 To setup EKS cluster we have followed [this](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-console.html) AWS official documentation.
 
@@ -247,7 +247,7 @@ We are able to do **kubectl get all** it means everything is configured correctl
 
 ![61](https://user-images.githubusercontent.com/74168188/191015929-5178fc25-012b-4b7c-9bff-5a9b6ef24915.png)
 
-#### Step-2: Create NodeJS deployment and service
+#### Step-2: Create a NodeJS deployment and service in the EKS cluster.
 
 To create a sample NodeJS app we used [this](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/) nodejs official documentation .
 
