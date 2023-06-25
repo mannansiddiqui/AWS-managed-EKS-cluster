@@ -1,4 +1,4 @@
-# AWS managed EKS cluster
+# Set up AWS-managed EKS cluster
 
 #### Description:
 
