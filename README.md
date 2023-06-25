@@ -2,20 +2,20 @@
 
 #### Description:
 
-- Setup an EKS cluster with a custom VPC.
+- Set up an EKS cluster with a custom VPC.
 - Create a NodeJS deployment and service in the EKS cluster.
 - Configure Persistent Volumes (PV) and Storage Class (SC).
-- Create ingress controller and access above created deployment using ingress and point it to the domain (application should be accessible through a browser) 
-- HPA & probs
-- SSL certificate
-- Kustomization
-- Jenkins declarative pipeline to deploy NodeJS app on K8s cluster
-- Use database and connect it with frontend
-- Configure monitoring using prometheus and grafana
+- Set up an ingress controller to manage inbound traffic and expose the deployment externally. Configure the ingress to point to a domain so that the application is accessible through a browser. 
+- HPA & Probs (In progress)
+- SSL certificate (In progress)
+- Kustomization (In progress)
+- Jenkins declarative pipeline to deploy NodeJS app on K8s cluster (In progress) 
+- Use the database and connect it with frontend (In progress)
+- Configure monitoring using Prometheus and grafana (In progress)
 
-#### Step-1: Setup an EKS cluster with a custom VPC.
+#### Step-1: Set up an EKS cluster with a custom VPC.
 
-To setup EKS cluster we have followed [this](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-console.html) AWS official documentation.
+To set up the EKS cluster we have followed [this](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-console.html) AWS official documentation.
 
 Firstly, Log in to the AWS management console.
 
@@ -498,11 +498,11 @@ Now try to hit External IP.
 
 Site is working fine.
 
-#### Step-3: PV & storage class
+#### Step-3: Configure Persistent Volumes (PV) and Storage Class (SC).
 
 Storage class and PV is created in starting of Step-2.
 
-#### Step-4: Create ingress controller and access above created deployment using ingress and point it to the domain (application should be accessible through a browser)
+#### Step-4: Set up an ingress controller to manage inbound traffic and expose the deployment externally. Configure the ingress to point to a domain so that the application is accessible through a browser.
 
 In order for the Ingress resource to work, the cluster must have an ingress controller running. Kubernetes as a project supports and maintains AWS, GCE, and nginx ingress controllers. We will use Nginx ingress controller. [Here](https://kubernetes.github.io/ingress-nginx/deploy/) is the official documentation to install Nginx ingress controller.
 
